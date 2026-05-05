@@ -78,10 +78,13 @@ export default function Contact() {
           <div>
             <h2 className="font-serif text-2xl text-charcoal mb-8">Envoyer un message</h2>
             <form
-              action="https://formspree.io/f/VOTRE_ID"
+              action="https://api.web3forms.com/submit"
               method="POST"
               className="space-y-5"
             >
+              <input type="hidden" name="access_key" value="d604416b-aac7-4b42-89e2-36e4d66937ce" />
+              <input type="hidden" name="subject" value="Nouveau message - Site Art-Thérapie" />
+              <input type="hidden" name="redirect" value="false" />
               <div>
                 <label className="font-sans text-sm text-charcoal block mb-2">
                   Votre nom
