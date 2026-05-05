@@ -43,9 +43,9 @@ export default function Footer() {
             Contact
           </p>
           <ul className="space-y-2 font-sans text-sm text-cream/70">
-            <li>✉️ [votre@email.com]</li>
-            <li>📞 [06 XX XX XX XX]</li>
-            <li>📍 [Votre ville]</li>
+            <li>✉️ marjorie.prieux@gmail.com</li>
+            <li>📞 06 66 16 89 95</li>
+            <li>📍 Le Vaudreuil, Normandie (27100)</li>
           </ul>
         </div>
       </div>

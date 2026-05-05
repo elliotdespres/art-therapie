@@ -3,18 +3,18 @@ import Link from "next/link";
 const services = [
   {
     icon: "🎨",
-    title: "Séances individuelles",
-    desc: "Un accompagnement personnalisé, à votre rythme, pour explorer vos émotions à travers la création artistique.",
+    title: "Art-thérapie",
+    desc: "Séances individuelles pour enfants, adolescents, adultes et seniors. La créativité comme outil de transformation personnelle.",
+  },
+  {
+    icon: "🖌️",
+    title: "Arts plastiques",
+    desc: "Micro-ateliers zen, cours de création et techniques pour tous les niveaux — débutants et perfectionnement.",
   },
   {
     icon: "🌿",
-    title: "Ateliers collectifs",
-    desc: "Créer ensemble dans un espace bienveillant. La dynamique de groupe enrichit l'expérience de chacun.",
-  },
-  {
-    icon: "🌸",
-    title: "Enfants & adolescents",
-    desc: "Des séances adaptées pour aider les plus jeunes à exprimer ce que les mots ne peuvent pas toujours dire.",
+    title: "Interventions extérieures",
+    desc: "Sessions en institutions, collectivités, associations et entreprises autour de l'expression émotionnelle et du bien-être.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Home() {
               L&apos;art comme<br />chemin vers soi
             </h1>
             <p className="font-sans text-muted text-lg leading-relaxed mb-8 max-w-md">
-              Un espace de création et d&apos;exploration émotionnelle pour vous accompagner dans votre épanouissement et votre bien-être.
+              Le processus créatif agit comme un processus de transformation. Il libère, transforme et reconstruit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
