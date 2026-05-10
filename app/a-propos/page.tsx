@@ -22,7 +22,7 @@ export default function APropos() {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="flex justify-center">
             <div className="w-80 h-96 relative rounded-3xl overflow-hidden shadow-xl">
-              <Image src="/fleurs.jpeg" alt="Création de Marjorie Prieux" fill className="object-cover" />
+              <Image src="/portrait.jpeg" alt="Marjorie Prieux, art-thérapeute" fill className="object-cover" />
             </div>
           </div>
 
