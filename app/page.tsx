@@ -104,7 +104,7 @@ export default function Home() {
         </AnimateIn>
       </section>
 
-      {/* Services */}
+      {/* 3 Univers */}
       <section className="bg-white py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <AnimateIn>
@@ -113,29 +113,55 @@ export default function Home() {
                 Ce que je propose
               </p>
               <h2 className="font-serif text-5xl md:text-6xl text-charcoal">
-                Mes accompagnements
+                Trois univers, une approche
               </h2>
             </div>
           </AnimateIn>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((s, i) => (
-              <AnimateIn key={s.title} delay={i * 0.15}>
-                <div className="group bg-cream rounded-3xl p-10 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
-                  <div className="text-4xl mb-6">{s.icon}</div>
-                  <h3 className="font-serif text-2xl text-charcoal mb-4">{s.title}</h3>
-                  <p className="font-sans text-muted leading-relaxed">{s.desc}</p>
-                </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                img: "/arttherapie-seniors.jpg",
+                label: "Art-thérapie",
+                title: "Transformation par la création",
+                desc: "Séances individuelles pour explorer vos émotions et initier un changement intérieur, quel que soit votre âge.",
+                href: "/seances",
+                color: "from-terra/80",
+              },
+              {
+                img: "/aquarelle.jpeg",
+                label: "Arts plastiques",
+                title: "Apprendre & créer",
+                desc: "Cours et ateliers pour tous les niveaux — dessiner, peindre, sculpter — dans un cadre bienveillant.",
+                href: "/seances",
+                color: "from-sage/80",
+              },
+              {
+                img: "/teambuilding-1.png",
+                label: "Team building",
+                title: "Cohésion par l'art",
+                desc: "Ateliers artistiques collectifs en entreprise pour renforcer les liens et libérer la créativité de vos équipes.",
+                href: "/seances",
+                color: "from-brown/80",
+              },
+            ].map((u, i) => (
+              <AnimateIn key={u.label} delay={i * 0.15}>
+                <Link href={u.href} className="group block relative h-[480px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <Image src={u.img} alt={u.label} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${u.color} to-transparent`} />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <p className="font-sans text-white/70 text-xs uppercase tracking-widest mb-2">{u.label}</p>
+                    <h3 className="font-serif text-2xl text-white mb-3">{u.title}</h3>
+                    <p className="font-sans text-white/80 text-sm leading-relaxed">{u.desc}</p>
+                  </div>
+                </Link>
               </AnimateIn>
             ))}
           </div>
 
           <AnimateIn delay={0.3}>
             <div className="text-center mt-14">
-              <Link
-                href="/seances"
-                className="font-sans text-terra underline underline-offset-8 hover:text-terra-dark transition-colors"
-              >
+              <Link href="/seances" className="font-sans text-terra underline underline-offset-8 hover:text-terra-dark transition-colors">
                 Voir toutes les séances et tarifs →
               </Link>
             </div>

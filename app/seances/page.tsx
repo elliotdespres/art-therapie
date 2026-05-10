@@ -1,10 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
-const seances = [
+const univers = [
   {
-    categorie: "Art-thérapie",
-    couleur: "bg-terra/10 border-terra/20",
-    titreColor: "text-terra",
+    id: "art-therapie",
+    label: "Art-thérapie",
+    couleurBg: "bg-terra/10",
+    couleurBorder: "border-terra/20",
+    couleurTitre: "text-terra",
+    couleurBadge: "bg-terra/10 text-terra",
+    img: "/arttherapie-seniors.jpg",
+    imgAlt: "Séance d'art-thérapie",
+    intro: "L'art-thérapie utilise la création artistique comme outil thérapeutique. Aucune compétence artistique requise — c'est le processus qui compte, pas le résultat.",
     items: [
       {
         titre: "Séance individuelle adulte / senior",
@@ -21,9 +28,15 @@ const seances = [
     ],
   },
   {
-    categorie: "Arts plastiques",
-    couleur: "bg-sage/10 border-sage/20",
-    titreColor: "text-sage",
+    id: "arts-plastiques",
+    label: "Arts plastiques",
+    couleurBg: "bg-sage/10",
+    couleurBorder: "border-sage/20",
+    couleurTitre: "text-sage",
+    couleurBadge: "bg-sage/10 text-sage",
+    img: "/aquarelle.jpeg",
+    imgAlt: "Atelier arts plastiques",
+    intro: "Des cours et ateliers pour tous les niveaux, dans un cadre bienveillant. Dessin, peinture, collage, sculpture — explorez les techniques à votre rythme.",
     items: [
       {
         titre: "Micro-ateliers zen",
@@ -33,7 +46,7 @@ const seances = [
       },
       {
         titre: "Cours création & techniques",
-        public: "Pré-adolescents (12-16 ans)",
+        public: "Pré-ados (12-16 ans)",
         duree: "1h30",
         desc: "Exploration des techniques artistiques — dessin, peinture, collage — pour développer sa sensibilité et son expression.",
       },
@@ -52,21 +65,33 @@ const seances = [
     ],
   },
   {
-    categorie: "Interventions extérieures",
-    couleur: "bg-brown/10 border-brown/20",
-    titreColor: "text-brown",
+    id: "team-building",
+    label: "Team building",
+    couleurBg: "bg-brown/10",
+    couleurBorder: "border-brown/20",
+    couleurTitre: "text-brown",
+    couleurBadge: "bg-brown/10 text-brown",
+    img: "/teambuilding-1.png",
+    imgAlt: "Atelier team building en entreprise",
+    intro: "Des sessions artistiques collectives pour renforcer la cohésion d'équipe, libérer la créativité et réduire le stress en entreprise ou en institution.",
     items: [
       {
-        titre: "Session en institution / association",
-        public: "Groupes",
-        duree: "Sur devis",
-        desc: "Interventions en EHPAD, hôpitaux, associations, écoles… pour proposer la création comme outil de lien social et de bien-être.",
+        titre: "Atelier fresque collective",
+        public: "Équipes 5-20 personnes",
+        duree: "2h - 3h",
+        desc: "Créer ensemble une grande fresque artistique. Idéal pour les séminaires, journées d'intégration ou événements d'entreprise.",
       },
       {
-        titre: "Atelier bien-être en entreprise",
+        titre: "Atelier bien-être",
         public: "Équipes",
+        duree: "1h30",
+        desc: "Réduction du stress et reconnexion à soi par la création artistique. Un moment de pause créative pour vos collaborateurs.",
+      },
+      {
+        titre: "Intervention en institution",
+        public: "EHPAD, hôpitaux, associations",
         duree: "Sur devis",
-        desc: "Réduction du stress et cohésion d'équipe par la création artistique. Idéal pour des séminaires ou des journées bien-être.",
+        desc: "Sessions adaptées en établissements de santé, associations et collectivités pour proposer la création comme lien social et bien-être.",
       },
     ],
   },
@@ -79,34 +104,46 @@ export default function Seances() {
       <section className="bg-gradient-to-b from-cream to-beige py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p className="font-sans text-terra text-sm uppercase tracking-widest mb-3">
-            Tarifs & séances
+            Séances & tarifs
           </p>
-          <h1 className="font-serif text-5xl text-charcoal mb-6">Mes séances</h1>
+          <h1 className="font-serif text-5xl text-charcoal mb-6">Mes accompagnements</h1>
           <p className="font-sans text-muted text-lg leading-relaxed">
-            Des accompagnements adaptés à chaque âge et chaque besoin, à l&apos;atelier Espace Chloro&apos;feel à Le Vaudreuil.
+            Trois univers complémentaires pour répondre à tous vos besoins — à l&apos;atelier Espace Chloro&apos;feel ou en déplacement.
           </p>
         </div>
       </section>
 
-      {/* Séances */}
+      {/* Univers */}
       <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-6 space-y-16">
-          {seances.map((s) => (
-            <div key={s.categorie}>
-              <h2 className={`font-serif text-3xl ${s.titreColor} mb-8`}>{s.categorie}</h2>
+        <div className="max-w-5xl mx-auto px-6 space-y-24">
+          {univers.map((u, i) => (
+            <div key={u.id} id={u.id}>
+              {/* Titre univers */}
+              <div className={`flex items-center gap-4 mb-10 pb-4 border-b ${u.couleurBorder}`}>
+                <h2 className={`font-serif text-4xl ${u.couleurTitre}`}>{u.label}</h2>
+              </div>
+
+              {/* Photo + intro */}
+              <div className={`grid md:grid-cols-2 gap-10 items-center mb-10 ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
+                <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg md:[direction:ltr]">
+                  <Image src={u.img} alt={u.imgAlt} fill className="object-cover" />
+                </div>
+                <div className="md:[direction:ltr]">
+                  <p className="font-sans text-muted text-lg leading-relaxed">{u.intro}</p>
+                </div>
+              </div>
+
+              {/* Séances */}
               <div className="space-y-4">
-                {s.items.map((item) => (
-                  <div
-                    key={item.titre}
-                    className={`rounded-2xl border p-6 ${s.couleur}`}
-                  >
+                {u.items.map((item) => (
+                  <div key={item.titre} className={`rounded-2xl border p-6 ${u.couleurBg} ${u.couleurBorder}`}>
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                       <h3 className="font-serif text-xl text-charcoal">{item.titre}</h3>
-                      <div className="flex gap-3 shrink-0">
-                        <span className="font-sans text-xs bg-white/70 text-charcoal px-3 py-1 rounded-full">
+                      <div className="flex gap-2 shrink-0 flex-wrap">
+                        <span className={`font-sans text-xs px-3 py-1 rounded-full ${u.couleurBadge}`}>
                           {item.public}
                         </span>
-                        <span className="font-sans text-xs bg-white/70 text-charcoal px-3 py-1 rounded-full">
+                        <span className="font-sans text-xs bg-white text-charcoal px-3 py-1 rounded-full">
                           {item.duree}
                         </span>
                       </div>
@@ -120,23 +157,31 @@ export default function Seances() {
         </div>
       </section>
 
-      {/* Note tarifs */}
-      <section className="bg-beige py-12">
+      {/* Galerie team building */}
+      <section className="bg-beige py-16">
+        <div className="max-w-5xl mx-auto px-6">
+          <h3 className="font-serif text-2xl text-charcoal mb-6 text-center">Aperçu des ateliers team building</h3>
+          <div className="grid grid-cols-3 gap-4">
+            {["/teambuilding-1.png", "/teambuilding-2.png", "/teambuilding-3.png"].map((src, i) => (
+              <div key={i} className="relative aspect-square rounded-xl overflow-hidden shadow-md">
+                <Image src={src} alt={`Team building ${i + 1}`} fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="font-sans text-muted text-sm leading-relaxed">
-            Pour connaître les tarifs détaillés et les disponibilités, n&apos;hésitez pas à me contacter directement par email ou téléphone. Une première séance découverte peut être organisée pour répondre à toutes vos questions.
+          <p className="font-sans text-muted text-sm leading-relaxed mb-6">
+            Pour connaître les tarifs détaillés et les disponibilités, contactez-moi directement. Une première séance découverte peut être organisée sans engagement.
           </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/reservation"
-              className="bg-terra text-white font-sans px-8 py-3.5 rounded-full hover:bg-terra-dark transition-colors"
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/reservation" className="bg-terra text-white font-sans px-8 py-3.5 rounded-full hover:bg-terra-dark transition-colors">
               Prendre rendez-vous
             </Link>
-            <Link
-              href="/contact"
-              className="border border-charcoal text-charcoal font-sans px-8 py-3.5 rounded-full hover:bg-charcoal hover:text-cream transition-colors"
-            >
+            <Link href="/contact" className="border border-charcoal text-charcoal font-sans px-8 py-3.5 rounded-full hover:bg-charcoal hover:text-cream transition-colors">
               Poser une question
             </Link>
           </div>
