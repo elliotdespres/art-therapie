@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import AnimateIn from "@/components/AnimateIn";
 
 const services = [
   {
@@ -22,130 +26,177 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="min-h-[90vh] bg-gradient-to-b from-cream to-beige flex items-center">
-        <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="font-sans text-terra text-sm uppercase tracking-widest mb-4">
-              Art-Thérapie
-            </p>
-            <h1 className="font-serif text-5xl md:text-6xl text-charcoal leading-tight mb-6">
-              L&apos;art comme<br />chemin vers soi
-            </h1>
-            <p className="font-sans text-muted text-lg leading-relaxed mb-8 max-w-md">
-              Le processus créatif agit comme un processus de transformation. Il libère, transforme et reconstruit.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/reservation"
-                className="bg-terra text-white font-sans px-8 py-3.5 rounded-full hover:bg-terra-dark transition-colors text-center"
-              >
-                Prendre rendez-vous
-              </Link>
-              <Link
-                href="/a-propos"
-                className="border border-charcoal text-charcoal font-sans px-8 py-3.5 rounded-full hover:bg-charcoal hover:text-cream transition-colors text-center"
-              >
-                En savoir plus
-              </Link>
-            </div>
-          </div>
+      <section className="min-h-screen bg-gradient-to-b from-cream via-beige to-cream flex flex-col items-center justify-center text-center px-6 -mt-20 pt-20">
+        <motion.p
+          className="font-sans text-terra text-sm uppercase tracking-[0.3em] mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Art-thérapeute · Le Vaudreuil, Normandie
+        </motion.p>
 
-          <div className="hidden md:flex justify-center">
-            <div className="w-80 h-96 bg-beige rounded-3xl border-2 border-sage-light flex items-center justify-center">
-              <p className="font-sans text-muted text-sm text-center px-8">
-                Votre photo ici
-                <br />
-                <span className="text-xs opacity-60">(portrait, atelier…)</span>
-              </p>
-            </div>
-          </div>
-        </div>
+        <motion.h1
+          className="font-serif text-6xl md:text-8xl lg:text-9xl text-charcoal leading-[1.05] mb-8 max-w-5xl"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          L&apos;art comme<br />chemin vers soi
+        </motion.h1>
+
+        <motion.p
+          className="font-sans text-muted text-xl leading-relaxed mb-12 max-w-xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          Le processus créatif libère, transforme et reconstruit. Sans compétence requise — juste vous, et la création.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+        >
+          <Link
+            href="/reservation"
+            className="bg-terra text-white font-sans px-10 py-4 rounded-full hover:bg-terra-dark transition-all hover:scale-105 active:scale-95"
+          >
+            Prendre rendez-vous
+          </Link>
+          <Link
+            href="/a-propos"
+            className="border border-charcoal text-charcoal font-sans px-10 py-4 rounded-full hover:bg-charcoal hover:text-cream transition-all hover:scale-105 active:scale-95"
+          >
+            Découvrir mon parcours
+          </Link>
+        </motion.div>
+
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-6 h-10 border-2 border-muted/40 rounded-full flex justify-center pt-2"
+          >
+            <div className="w-1 h-2 bg-muted/40 rounded-full" />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Citation */}
+      <section className="bg-charcoal py-24 px-6 text-center">
+        <AnimateIn>
+          <p className="font-serif text-3xl md:text-5xl text-cream leading-relaxed max-w-4xl mx-auto italic">
+            &ldquo;Le processus créatif agit comme un processus de transformation.<br />
+            Il libère, transforme et reconstruit.&rdquo;
+          </p>
+          <p className="font-sans text-cream/40 text-sm mt-8 tracking-widest uppercase">
+            — Marjorie Prieux
+          </p>
+        </AnimateIn>
       </section>
 
       {/* Services */}
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <p className="font-sans text-terra text-sm uppercase tracking-widest mb-3">
-              Ce que je propose
-            </p>
-            <h2 className="font-serif text-4xl text-charcoal">Mes accompagnements</h2>
-          </div>
+      <section className="bg-white py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <AnimateIn>
+            <div className="text-center mb-20">
+              <p className="font-sans text-terra text-sm uppercase tracking-[0.3em] mb-4">
+                Ce que je propose
+              </p>
+              <h2 className="font-serif text-5xl md:text-6xl text-charcoal">
+                Mes accompagnements
+              </h2>
+            </div>
+          </AnimateIn>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow"
-              >
-                <div className="text-3xl mb-4">{s.icon}</div>
-                <h3 className="font-serif text-xl text-charcoal mb-3">{s.title}</h3>
-                <p className="font-sans text-muted text-sm leading-relaxed">{s.desc}</p>
-              </div>
+            {services.map((s, i) => (
+              <AnimateIn key={s.title} delay={i * 0.15}>
+                <div className="group bg-cream rounded-3xl p-10 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
+                  <div className="text-4xl mb-6">{s.icon}</div>
+                  <h3 className="font-serif text-2xl text-charcoal mb-4">{s.title}</h3>
+                  <p className="font-sans text-muted leading-relaxed">{s.desc}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <Link
-              href="/seances"
-              className="font-sans text-terra text-sm underline underline-offset-4 hover:text-terra-dark transition-colors"
-            >
-              Voir les séances et tarifs →
-            </Link>
-          </div>
+          <AnimateIn delay={0.3}>
+            <div className="text-center mt-14">
+              <Link
+                href="/seances"
+                className="font-sans text-terra underline underline-offset-8 hover:text-terra-dark transition-colors"
+              >
+                Voir toutes les séances et tarifs →
+              </Link>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* Approche */}
-      <section className="bg-beige py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="font-sans text-terra text-sm uppercase tracking-widest mb-3">
-              Mon approche
-            </p>
-            <h2 className="font-serif text-4xl text-charcoal mb-6">
-              Créer pour se retrouver
-            </h2>
-            <p className="font-sans text-muted leading-relaxed mb-4">
-              L&apos;art-thérapie ne demande aucune compétence artistique. Ce n&apos;est pas le résultat qui compte, mais le chemin parcouru. À travers le dessin, la peinture, le collage ou la sculpture, chaque geste devient une parole intérieure.
-            </p>
-            <p className="font-sans text-muted leading-relaxed mb-8">
-              Dans un cadre confidentiel et bienveillant, je vous accompagne avec douceur pour que vous puissiez explorer, exprimer et transformer ce que vous ressentez.
-            </p>
-            <Link
-              href="/a-propos"
-              className="bg-terra text-white font-sans px-8 py-3.5 rounded-full hover:bg-terra-dark transition-colors inline-block"
-            >
-              Découvrir mon parcours
-            </Link>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="w-72 h-80 bg-sage-light/40 rounded-3xl border border-sage flex items-center justify-center">
+      <section className="bg-beige py-32 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+          <AnimateIn>
+            <div className="w-full aspect-[4/5] bg-sage-light/40 rounded-3xl border border-sage flex items-center justify-center">
               <p className="font-sans text-muted text-sm text-center px-8">
                 Photo de l&apos;atelier
                 <br />
                 <span className="text-xs opacity-60">ou de vos créations</span>
               </p>
             </div>
-          </div>
+          </AnimateIn>
+
+          <AnimateIn delay={0.2}>
+            <p className="font-sans text-terra text-sm uppercase tracking-[0.3em] mb-4">
+              Mon approche
+            </p>
+            <h2 className="font-serif text-5xl text-charcoal mb-8 leading-tight">
+              Créer pour<br />se retrouver
+            </h2>
+            <p className="font-sans text-muted leading-relaxed mb-6 text-lg">
+              L&apos;art-thérapie ne demande aucune compétence artistique. Ce n&apos;est pas le résultat qui compte, mais le chemin parcouru.
+            </p>
+            <p className="font-sans text-muted leading-relaxed mb-10">
+              Dans un cadre confidentiel et bienveillant, je vous accompagne avec douceur à travers le dessin, la peinture, le collage ou la sculpture.
+            </p>
+            <Link
+              href="/a-propos"
+              className="bg-charcoal text-cream font-sans px-8 py-4 rounded-full hover:bg-terra transition-all hover:scale-105 active:scale-95 inline-block"
+            >
+              En savoir plus sur moi
+            </Link>
+          </AnimateIn>
         </div>
       </section>
 
       {/* CTA finale */}
-      <section className="bg-terra py-20 text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-4xl text-white mb-4">Prêt(e) à commencer ?</h2>
-          <p className="font-sans text-white/80 text-lg leading-relaxed mb-8">
-            La première séance est un moment d&apos;échange pour qu&apos;on se rencontre et que vous posiez toutes vos questions, sans engagement.
+      <section className="bg-terra py-32 px-6 text-center">
+        <AnimateIn>
+          <p className="font-sans text-white/60 text-sm uppercase tracking-[0.3em] mb-6">
+            Première séance
+          </p>
+          <h2 className="font-serif text-6xl md:text-7xl text-white mb-8 leading-tight">
+            Prêt(e) à<br />commencer ?
+          </h2>
+          <p className="font-sans text-white/80 text-xl leading-relaxed mb-12 max-w-xl mx-auto">
+            La première séance est un moment d&apos;échange sans engagement — pour se rencontrer et répondre à toutes vos questions.
           </p>
           <Link
             href="/reservation"
-            className="bg-white text-terra font-sans font-medium px-10 py-4 rounded-full hover:bg-cream transition-colors inline-block"
+            className="bg-white text-terra font-sans font-medium px-12 py-5 rounded-full text-lg hover:bg-cream transition-all hover:scale-105 active:scale-95 inline-block"
           >
             Réserver ma première séance
           </Link>
-        </div>
+        </AnimateIn>
       </section>
     </>
   );
