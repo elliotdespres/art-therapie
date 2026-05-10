@@ -29,7 +29,7 @@ const univers = [
         titre: "Micro-ateliers zen",
         public: "Jeunes (6-12 ans)",
         duree: "1h",
-        desc: "Des ateliers créatifs en petits groupes pour initier les enfants aux arts plastiques dans un cadre zen et bienveillant.",
+        desc: "Des ateliers pour favoriser la création libre dans un cadre zen et bienveillant, où chaque enfant s'exprime à son propre rythme.",
       },
     ],
   },
