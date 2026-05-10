@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimateIn from "@/components/AnimateIn";
 
@@ -146,12 +147,8 @@ export default function Home() {
       <section className="bg-beige py-32 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <AnimateIn>
-            <div className="w-full aspect-[4/5] bg-sage-light/40 rounded-3xl border border-sage flex items-center justify-center">
-              <p className="font-sans text-muted text-sm text-center px-8">
-                Photo de l&apos;atelier
-                <br />
-                <span className="text-xs opacity-60">ou de vos créations</span>
-              </p>
+            <div className="w-full aspect-[4/5] relative rounded-3xl overflow-hidden shadow-xl">
+              <Image src="/aquarelle.jpeg" alt="Atelier d'art-thérapie" fill className="object-cover" />
             </div>
           </AnimateIn>
 
@@ -175,6 +172,40 @@ export default function Home() {
               En savoir plus sur moi
             </Link>
           </AnimateIn>
+        </div>
+      </section>
+
+      {/* Galerie */}
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <AnimateIn>
+            <div className="text-center mb-14">
+              <p className="font-sans text-terra text-sm uppercase tracking-[0.3em] mb-4">Créations</p>
+              <h2 className="font-serif text-5xl text-charcoal">Un aperçu de l&apos;atelier</h2>
+            </div>
+          </AnimateIn>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <AnimateIn delay={0} className="col-span-2 md:col-span-2">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                <Image src="/magnolia.jpeg" alt="Atelier magnolia en plein air" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <div className="relative aspect-[16/10] md:aspect-auto md:h-full min-h-40 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                <Image src="/fleurs.jpeg" alt="Fleurs en papier crépon" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                <Image src="/coquillages.jpeg" alt="Dessin de coquillages" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.3} className="col-span-2">
+              <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                <Image src="/aquarelle.jpeg" alt="Aquarelle et fleurs" fill className="object-cover object-top hover:scale-105 transition-transform duration-500" />
+              </div>
+            </AnimateIn>
+          </div>
         </div>
       </section>
 

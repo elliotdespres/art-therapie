@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function APropos() {
   return (
@@ -20,12 +21,8 @@ export default function APropos() {
       <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="flex justify-center">
-            <div className="w-80 h-96 bg-beige rounded-3xl border-2 border-sage-light flex items-center justify-center">
-              <p className="font-sans text-muted text-sm text-center px-8">
-                Photo de Marjorie
-                <br />
-                <span className="text-xs opacity-60">(à ajouter)</span>
-              </p>
+            <div className="w-80 h-96 relative rounded-3xl overflow-hidden shadow-xl">
+              <Image src="/fleurs.jpeg" alt="Création de Marjorie Prieux" fill className="object-cover" />
             </div>
           </div>
 
