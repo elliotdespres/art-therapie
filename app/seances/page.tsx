@@ -25,6 +25,12 @@ const univers = [
         duree: "45 min",
         desc: "La création comme espace d'expression libre pour les plus jeunes — anxiété, confiance en soi, difficultés scolaires ou familiales.",
       },
+      {
+        titre: "Micro-ateliers zen",
+        public: "Jeunes (6-12 ans)",
+        duree: "1h",
+        desc: "Des ateliers créatifs en petits groupes pour initier les enfants aux arts plastiques dans un cadre zen et bienveillant.",
+      },
     ],
   },
   {
@@ -38,12 +44,6 @@ const univers = [
     imgAlt: "Atelier arts plastiques",
     intro: "Des cours et ateliers pour tous les niveaux, dans un cadre bienveillant. Dessin, peinture, collage, sculpture — explorez les techniques à votre rythme.",
     items: [
-      {
-        titre: "Micro-ateliers zen",
-        public: "Jeunes (6-12 ans)",
-        duree: "1h",
-        desc: "Des ateliers créatifs en petits groupes pour initier les enfants aux arts plastiques dans un cadre zen et bienveillant.",
-      },
       {
         titre: "Cours création & techniques",
         public: "Pré-ados (12-16 ans)",
